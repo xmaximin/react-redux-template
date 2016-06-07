@@ -16,6 +16,7 @@ var plugins = [
 if (process.env.NODE_ENV === 'production') {
   // in prod mode, uglify everything
   plugins.push(new webpack.optimize.UglifyJsPlugin({
+    sourceMap: false,
     compressor: {
       screw_ie8: true,
       warnings: false
@@ -37,6 +38,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './public/',
+    historyApiFallback: true,
   },
   entry: [
     './src/main.js' // the main entry point for the build
